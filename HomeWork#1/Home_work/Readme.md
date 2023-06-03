@@ -42,12 +42,12 @@ triangle_check(a, b, c)
 
 ### Вариант 2 (через тернарники и один print и один input())
 
-Попытка использовать тернарник и один print
-Было очень много попыток, основные удалил, самые интересные оставил.(Потратил очень много времени)
-Тут один print() и один input()
-Тут Проверки в двух переменных с использованием тернального оператора
+❗Попытка использовать тернарник и один print
+  Было очень много попыток, основные удалил, самые интересные оставил.(Потратил очень много времени)
+  Тут один print() и один input()
+  Тут Проверки в двух переменных с использованием тернального оператора
 
-Так же много не рабочих вариантов в Home_work#1.py
+❗Так же много не рабочих вариантов в Home_work#1.py
 ```python
 a1 = 1
 b1 = 1
@@ -73,3 +73,96 @@ print(res)
 # Вывод в один print()
 ```
 ## Задание 2 
+
+⏩ Напишите код, который запрашивает число и сообщает является ли оно простым или составным.
+⏩ Используйте правило для проверки: «Число является простым,
+⏩ если делится нацело только на единицу и на себя».
+⏩ Сделайте ограничение на ввод отрицательных чисел и чисел больше 100 тысяч.
+
+❗ Тут не стал мудрить
+
+```python
+number_1 = int(input("Введите число: "))
+
+
+def search_for_a_prime_number(number):
+    """Функция нахождения простого числа """
+    if number <= 0 or number > 100000:
+        print("Число должно быть положительным и не превышать 100,000")
+    else:
+        is_prime_flag = True
+        for i in range(2, int(number ** 0.5) + 1):
+            if number % i == 0:
+                is_prime_flag = False
+                break
+        if is_prime_flag:
+            print("Число простое")
+        else:
+            print("Число составное")
+
+
+search_for_a_prime_number(number_1)
+```
+
+## Задача 3
+
+⏩ ✔ Программа загадывает число от 0 до 1000.
+
+⏩ Необходимо угадать число за 10 попыток.
+⏩ Программа должна подсказывать «больше» или «меньше» после каждой попытки.
+⏩ Для генерации случайного числа используйте код:
+⏩  from random import randint
+⏩  num = randint(LOWER_LIMIT, UPPER_LIMIT)
+
+❗Тут 2 варианта 
+```python
+import random
+
+answer_input = random.randint(0, 1000)
+print(answer_input)
+
+
+def guess_the_number(answer, total=0):
+    """Вариант №1 в функции"""
+    while total < 10:
+        gess = int(input('ваше предложение ?'))
+        if gess == answer:
+            print(f'Победа вы угадали число это было {answer}\nВы затратили {total} попыток')
+
+        elif int(gess) > int(answer):
+            print('Меньше')
+            total += 1
+            continue
+        else:
+            print('Больше')
+            total += 1
+            print(total)
+            continue
+        if total == 10:
+            print(f'Вы проиграли вы истратили все {total} попытки ')
+    print(f'Вы проиграли вы истратили все {total} попытки ')
+
+
+guess_the_number(answer_input)
+
+guesses_left_input = 10
+
+
+def guess_the_number_2(guesses_left, answer):
+    """Второй вариант, на убывание счетчика"""
+    while guesses_left > 0:
+        print(f'У вас осталось {guesses_left} попыток.')
+        guess = int(input('Введите число: '))
+        if guess == answer:
+            print('Поздравляем, вы угадали число!')
+            break
+        elif guess < answer:
+            print('Больше')
+        else:
+            print('Меньше')
+        guesses_left -= 1
+
+    if guesses_left == 0:
+        print(f'К сожалению, вы не угадали число {answer}.')
+
+```
