@@ -20,7 +20,7 @@ def triangle_check(arg_a, arg_b, arg_c):
             print('Треугольник существует')
             if arg_a == arg_b == arg_c or arg_b == arg_c == arg_a or arg_c == arg_a == arg_b:
                 print("Этот треугольник равносторонний")
-            elif arg_a == arg_b > arg_c or arg_b == arg_c > arg_a or arg_c == arg_a > arg_b:
+            elif arg_a == arg_b or arg_b == arg_c or arg_c == arg_a:
                 print("Этот треугольник равнобедренный")
             else:
                 print("Этот треугольник разносторонний")
