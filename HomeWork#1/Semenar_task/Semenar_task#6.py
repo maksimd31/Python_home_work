@@ -32,3 +32,13 @@ def year_ves_tern(arg):
 yer_ves(year)
 print('=' * 50)
 year_ves_tern(year)
+
+
+def ves_ver_2(arg):
+    if arg % 4 != 0:
+        return "Обычный"
+    if arg % 100 == 0:
+        if arg % 400 == 0:
+            return "Високосный"
+        return "Обычный"
+    return "Високосный"
