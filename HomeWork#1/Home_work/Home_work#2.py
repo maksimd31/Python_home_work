@@ -26,8 +26,8 @@ def search_for_a_prime_number(number):
 search_for_a_prime_number(number_1)
 
 
-def search_for_a_prime_number2(number):
-    """Функция нахождения простого числа """
+def search_for_a_prime_number_ver_2(number):
+    """Функция нахождения простого числа Улучшенная версия №2 """
     if 0 <= number <= 100000:
         is_prime_flag = True
         for i in range(2, int(number ** 0.5) + 1):
@@ -42,4 +42,20 @@ def search_for_a_prime_number2(number):
         print("Число должно быть положительным и не превышать 100,000")
 
 
-search_for_a_prime_number2(number_1)
+search_for_a_prime_number_ver_2(number_1)
+
+
+def search_for_a_prime_number_ver_3(number):
+    """Функция нахождения простого числа Улучшенная версия №3 """
+    if 0 <= number <= 100000:
+        for i in range(2, int(number ** 0.5) + 1):
+            if number % i == 0:
+                print("Число составное")
+                break
+        else:
+            print("Число простое")
+    else:
+        print("Число должно быть положительным и не превышать 100,000")
+
+
+search_for_a_prime_number_ver_3(number_1)
