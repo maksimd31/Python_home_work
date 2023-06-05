@@ -9,7 +9,7 @@ number_1 = int(input("Введите число: "))
 
 def search_for_a_prime_number(number):
     """Функция нахождения простого числа """
-    if number <= 0 or number > 100000:
+    if number < 0 or number > 100000:
         print("Число должно быть положительным и не превышать 100,000")
     else:
         is_prime_flag = True
@@ -24,3 +24,22 @@ def search_for_a_prime_number(number):
 
 
 search_for_a_prime_number(number_1)
+
+
+def search_for_a_prime_number2(number):
+    """Функция нахождения простого числа """
+    if 0 <= number <= 100000:
+        is_prime_flag = True
+        for i in range(2, int(number ** 0.5) + 1):
+            if number % i == 0:
+                is_prime_flag = False
+                break
+        if is_prime_flag:
+            print("Число простое")
+        else:
+            print("Число составное")
+    else:
+        print("Число должно быть положительным и не превышать 100,000")
+
+
+search_for_a_prime_number2(number_1)
