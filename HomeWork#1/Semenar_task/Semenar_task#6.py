@@ -11,22 +11,22 @@ year = int(input('Введите год в формате yyyy: '))
 def yer_ves(arg):
     """Функция, которая определяет являться ли год високосным"""
     if arg % 4 != 0:
-        return print("Обычный")
+        return "Обычный"
     elif arg % 100 == 0:
         if arg % 400 == 0:
-            return print("Високосный")
+            return "Високосный"
         else:
-            return print("Обычный")
+            return "Обычный"
     else:
-        return print("Високосный")
+        return "Високосный"
 
 
 def year_ves_tern(arg):
     """Функция, которая определяет являться ли год високосным с использованием тернальника"""
     if arg % 4 != 0 or arg % 100 == 0 and arg % 400 != 0:
-        return print("Обычный")
+        return "Обычный"
     else:
-        return print("Високосный")
+        return "Високосный"
 
 
 yer_ves(year)
