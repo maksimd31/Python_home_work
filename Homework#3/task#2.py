@@ -4,7 +4,6 @@
 
 
 import urllib.request
-import re
 from collections import Counter
 
 urllib.request.urlretrieve("https://ru.wikipedia.org/wiki/Python", "my_text.txt")
@@ -79,7 +78,7 @@ DevOps и веб-разработке, а также в других сфера�
 популярности языков программирования с показателем 15,74 %[48]. «Языком года» по версии
 TIOBE Python объявлялся в 2007, 2010, 2018, 2020 и 2021 годах[49]."""
 
-# # Тут получаем на вход регулярные выражения
+# # Тут я использовал коллекции, возможно подход и не верный, но рабочий, инструмент дата сайнтистов
 split_it = string_gg.replace('в', '') \
     .replace('и', '') \
     .replace('на', '') \
@@ -87,19 +86,17 @@ split_it = string_gg.replace('в', '') \
     .replace('л', '') \
     .replace('дя', '').split()
 
-Counters_found = Counter(split_it)  # кладем в контейнер колекции
+Counters_found = Counter(split_it)  # кладем в контейнер коллекции
 
 most_occur = Counters_found.most_common(10)
 print(f'10 самых часто встречающихся слов в тексте: \n{most_occur}')
 
+
 # file_HTML = open('my_text.txt', "r")
-#
 #
 # def sorted(arg):
 #     split_1 = arg.split()
-#     Counters_found = Counter(split_1)  # кладем в контейнер колекции
+#     Counters_found = Counter(split_1)  # кладем в контейнер коллекции
 #     most_occur = Counters_found.most_common(10)
 #     return f'10 самых часто встречающихся слов в тексте: \n{most_occur}'
-#
-#
 # print(sorted(str(file_HTML)))
