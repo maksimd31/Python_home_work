@@ -31,8 +31,17 @@ def table_umn(arg1, arg2, arg3, arg4):
         for j in range(arg3, arg4):
             print(f"{j}x{i}={j * i}", end="\t")
         print()
+# def table_umn(arg1, arg2, arg3, arg4):
+#     for i in range(arg1, arg2):
+#         for j in range(arg3, arg4):
+#             print(f"{j}x{i}={j * i}", end="\t")
+#         print()
 
 
 table_umn(2, 11, 2, 6)
 print('')
 table_umn(2, 11, 6, 10)
+
+# table_umn(2, 11, 2, 6)
+# print('')
+# table_umn(2, 11, 6, 10)
