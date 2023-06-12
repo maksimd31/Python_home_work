@@ -36,32 +36,72 @@ def convert(arg_num, arg_step):
     return result
 
 
-print(convert(num, step))
+# Изначально сделал просто, но понял при расчете больших значений вывод не правильный
+# и решил сделать буквы
 
 
-def remove_str(arg):
-    return arg[:-2]
+# def convert_2(arg_num, result, converted_list=None):
+#     while arg_num > 0:
+#         list_on_num = dict123(result[0:2])
+#         converted_list.append(list_on_num)
+#         converted_list.reverse()
+#     list_concatenation = ','.join(converted_list)
+#     return f'{list_concatenation}'
 
 
-def convert_2(arg_num, arg_step):
-    """"Эта функция №2 которая возвращает более правильные ответы,
-    а именно буквы согласно правилами конвертирования они указаны в словаре"""
+def convert_3(arg):
     converted_list = []
-    result = ''
-    while arg_num > 0:
-        result = str(arg_num % arg_step) + result
-        if len(result) >= 2:
-            rr = dict123(result[0:2])
-            converted_list.append(rr)
-            converted_list.reverse()
-            # list_concatenation = ','.join(converted_list)
-        arg_num = arg_num // arg_step
-    if len(result) > 2:
-        list_concatenation = ','.join(converted_list)
-        print(list_concatenation)
-    else:
-        print(result)
+    converted_list.append(arg)
+    one_arg = converted_list[0:2]
+    one_arg_2 = converted_list[2:]
+    one_arg = dict123(str(one_arg))
+    one_arg_2 = dict123(str(one_arg_2))
+    list_concatenation = one_arg, one_arg_2
+    print(list_concatenation)
 
+
+# print(convert_2(num, step))
+# print(convert(num, step))
+
+
+pr = convert(num, step)
+
+convert_3(str(pr))
+
+if len(pr) >= 4:
+    pass
+    # convert_2(num, pr)
+else:
+    print(*pr)
+
+#
+# def convert_2(arg_num, arg_step, converted_list=[]):
+#     """"Эта функция №2 которая возвращает более правильные ответы,
+#     а именно буквы согласно правилами конвертирования они указаны в словаре"""
+#     result = ''
+#     while arg_num > 0:
+#         result = str(arg_num % arg_step) + result
+#         # в строку результат мы записываем все что не превышает двухзначный вывод(при вводе не больших значений)
+#         if len(result) >= 2:
+#             while len(result) == 2:
+#                 # Проверяем если значение двухзначное
+#                 list_on_num = dict123(result[0:2])
+#                 converted_list.append(list_on_num)
+#                 # проверяем две буквы по словарю если они есть, то записываем их в переменную
+#                 converted_list.reverse()
+#                 # разворачиваем список поскольку выше записываем в конец списка
+#             list_concatenation = ','.join(converted_list)
+#             return f'{list_concatenation}'
+#     arg_num // arg_step
+#     return result
+#
+#
+# print(convert_2(num, step))
+
+# if len(result) > 2:
+#     list_concatenation = ','.join(converted_list)
+#     print(list_concatenation)
+# else:
+#     print(result)
 
 # Тут довольно долго мучался что бы сделать все по уму
-convert_2(num, step)
