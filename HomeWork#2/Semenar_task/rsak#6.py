@@ -63,3 +63,49 @@ match answer:
         replenishment(start_sum)
     case 0:
         print('Выход')
+
+
+
+
+
+
+def balance(start_balance, operations):
+    balance = start_balance
+    withdrawal_count = 0
+    deposit_count = 0
+
+    for i, (operation_type, amount) in enumerate(operations):
+        if operation_type == 'withdrawal':
+            if amount > balance:
+                print(f"Нельзя снять {amount} у.е.: недостаточно средств на счете")
+            elif amount % 50 != 0:
+                print(f"Нельзя снять {amount} у.е.: не кратно 50")
+            else:
+                balance -= amount
+                withdrawal_count += 1
+                if withdrawal_count % 3 == 0:
+                    balance *= 0.97
+                if balance > 5000000:
+                    balance *= 0.9
+                if amount * 0.015 > 30:
+                    fee = amount * 0.015
+                else:
+                    fee = 30
+                if fee > 600:
+                    fee = 600
+                balance -= fee
+        elif operation_type == 'deposit':
+            if amount % 50 != 0:
+                print(f"Нельзя пополнить на {amount} у.е.: не кратно 50")
+            else:
+                balance += amount
+                deposit_count += 1
+                if deposit_count % 3 == 0:
+                    balance *= 1.03
+                if balance > 5000000:
+                    balance *= 0.9
+        else:
+            print(f"Неизвестный тип операции: {operation_type}")
+        print(f"Баланс после операции {i+1}: {balance} у.е.")
+
+    return balance
